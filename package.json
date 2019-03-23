@@ -1,0 +1,19 @@
+{
+  "name": "sam-launchpad-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "publish": "sam-launchpad",
+    "build": "sam-launchpad --skip-deploy --skip-package --skip-coverage --skip-validation",
+    "test": "sam-launchpad --skip-deploy --skip-package --skip-validation --skip-build",
+    "validate": "sam-launchpad --skip-deploy --skip-package --skip-coverage --skip-build",
+    "package": "sam-launchpad --skip-deploy --skip-build --skip-coverage --skip-validation",
+    "deploy": "sam-launchpad --skip-package --skip-build --skip-coverage --skip-validation"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sam-launchpad": "^1.1.23"
+  }
+}

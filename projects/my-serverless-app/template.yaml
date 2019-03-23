@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+- AWS::Serverless-2016-10-31
+
+Parameters:
+  Environment:
+    Type: String
+  ProjectName:
+    Type: String
+
+
+Globals:
+  Function:
+    Environment:
+      Variables:
+        STAGE: !Ref Environment
+
+
+Resources:
+
+  ProcessPayment:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.hello
+      Runtime: nodejs8.10
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get

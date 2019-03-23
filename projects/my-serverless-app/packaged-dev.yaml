@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: 2010-09-09
+Globals:
+  Function:
+    Environment:
+      Variables:
+        STAGE:
+          Ref: Environment
+Parameters:
+  Environment:
+    Type: String
+  ProjectName:
+    Type: String
+Resources:
+  ProcessPayment:
+    Properties:
+      CodeUri: s3://some-serverless-app/dev/my-serverless-app/18029175cb0fadb13d61990835f083e7
+      Events:
+        GetEvent:
+          Properties:
+            Method: get
+            Path: /
+          Type: Api
+      Handler: index.hello
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+Transform:
+- AWS::Serverless-2016-10-31
